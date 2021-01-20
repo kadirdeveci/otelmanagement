@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<atom:link href="http://hotel-booking-script.com/demo/feeds/rss.xml" rel="self" type="application/rss+xml" />
+<title>uHotelBooking</title>
+<link>http://hotel-booking-script.com/demo/feeds/rss.xml</link>
+<description>uHotelBooking</description>
+<language>en-us</language>
+<copyright>(c) copyright</copyright>
+<pubDate>Sun, 01 Jan 2018 09:17:30 UTC</pubDate>
+<image>
+<url>http://hotel-booking-script.com/demo/images/icons/logo.png</url>
+<title>uHotelBooking</title>
+<link>http://hotel-booking-script.com/demo/feeds/rss.xml</link>
+</image>
+</channel>
+</rss>
