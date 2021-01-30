@@ -1,9 +1,7 @@
 <?php
-
-
 // *** Check if database connection parameters file exists
 if(!file_exists('include/base.inc.php')){
-	header('location: install.php');
+	header('location: yukle.php');
 	exit;
 }
 
@@ -18,8 +16,6 @@ defined('CSRF_VALIDATION') or define('CSRF_VALIDATION', true);
 // Ex.: 'key' => array('val1', 'val2')
 // Ex.: array('admin' => array('login', 'my_account'), 'page' => array('faq', 'cms'))
 // $CSRF_VALIDATION_EXCLUDE = array();
-
-
 require_once('include/base.inc.php');
 require_once('include/connection.php');
 

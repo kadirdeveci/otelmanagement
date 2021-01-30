@@ -145,7 +145,6 @@
 								<td class="text">
 									<select name="password_encryption">
 									<option <?php echo (($password_encryption == 'AES') ? 'selected="selected"' : ''); ?> value="AES">AES</option>
-									<option <?php echo (($password_encryption == 'MD5') ? 'selected="selected"' : ''); ?> value="MD5">MD5</option>
 									</select>
 								</td>
 							</tr>
