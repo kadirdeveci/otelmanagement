@@ -186,28 +186,11 @@ if($objLogin->IsLoggedInAs('owner','mainadmin') && Modules::IsModuleInstalled('c
 	## +---------------------------------------------------------------------------+
 	## | 2. Customizing:                                                           |
 	## +---------------------------------------------------------------------------+
-	## *** set container's width in pixels (px), inches (in) or points (pt)
 	$tabs->SetWidth('100%');
 
-	## *** set container's height in pixels (px), inches (in) or points (pt)
 	$tabs->SetHeight('auto'); // 'auto'
-
-	## *** set alignment inside the container (left, center or right)
 	$tabs->SetAlign('left');
-
-	## *** set container's color in RGB format or using standard names
-	/// $tabs->SetContainerColor('#64C864');
-	## *** set border's width in pixels (px), inches (in) or points (pt)
-	/// $tabs->SetBorderWidth('5px');
-	## *** set border's color in RGB format or using standard names
-	/// $tabs->SetBorderColor('#64C864');
-	/// $tabs->SetBorderColor('blue');
-	/// $tabs->SetBorderColor('#445566');
-	## *** show debug info - false|true
 	$tabs->Debug(false);
-	## *** allow refresh selected tabs - false|true
-	/// $tabs->AllowRefreshSelectedTabs(true);
-	## *** set form submission type: 'get' or 'post'
 	$tabs->SetSubmissionType('post');
 
 	draw_title_bar(prepare_breadcrumbs(array(_ACCOUNTS=>'', _STATISTICS=>'')));

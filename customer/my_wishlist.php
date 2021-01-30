@@ -1,10 +1,10 @@
 <?php
 /**
-*  
-*  
+*
+*
 * abdulkadir deveci
-*  
-*  
+*
+*
 */
 
 // *** Make sure the file isn't accessed directly
@@ -17,10 +17,10 @@ if($objLogin->IsLoggedInAsCustomer()){
 	$rid    		= MicroGrid::GetParameter('rid');
 	$mode   		= 'view';
 	$msg 			= '';
-	
+
 	$objWishlist = new Wishlist($objLogin->GetLoggedID());
-	
-	if($action=='add'){		
+
+	if($action=='add'){
 		$mode = 'add';
 	}else if($action=='create'){
 		if($objWishlist->AddRecord()){
@@ -39,7 +39,7 @@ if($objLogin->IsLoggedInAsCustomer()){
 		}else{
 			$msg = draw_important_message($objWishlist->error, false);
 			$mode = 'edit';
-		}		
+		}
 	}else if($action=='delete'){
 		if($objWishlist->DeleteRecord($rid)){
 			$msg = draw_success_message(_DELETING_OPERATION_COMPLETED, false);
@@ -47,34 +47,33 @@ if($objLogin->IsLoggedInAsCustomer()){
 			$msg = draw_important_message($objWishlist->error, false);
 		}
 		$mode = 'view';
-	}else if($action=='details'){		
-		$mode = 'details';		
-	}else if($action=='cancel_add'){		
-		$mode = 'view';		
-	}else if($action=='cancel_edit'){				
+	}else if($action=='details'){
+		$mode = 'details';
+	}else if($action=='cancel_add'){
+		$mode = 'view';
+	}else if($action=='cancel_edit'){
 		$mode = 'view';
 	}
-		
+
 	// Start main content
 	draw_title_bar(
 		prepare_breadcrumbs(array(_MY_ACCOUNT=>'',_WISHLIST=>'',ucfirst($action)=>''))
 	);
 		
-	//if($objSession->IsMessage('notice')) echo $objSession->GetMessage('notice');
 	echo $msg;
-	
+
 	//draw_content_start();
 	echo '<div id="divMyWishlist">';
-	if($mode == 'view'){			
-		$objWishlist->DrawViewMode();	
-	}else if($mode == 'add'){		
-		$objWishlist->DrawAddMode();		
-	}else if($mode == 'edit'){		
-		$objWishlist->DrawEditMode($rid);		
-	}else if($mode == 'details'){		
-		$objWishlist->DrawDetailsMode($rid);		
-	}	
-	//draw_content_end();		
+	if($mode == 'view'){
+		$objWishlist->DrawViewMode();
+	}else if($mode == 'add'){
+		$objWishlist->DrawAddMode();
+	}else if($mode == 'edit'){
+		$objWishlist->DrawEditMode($rid);
+	}else if($mode == 'details'){
+		$objWishlist->DrawDetailsMode($rid);
+	}
+	//draw_content_end();
 	echo '</div><br><br>';
 
 }else if($objLogin->IsLoggedIn()){

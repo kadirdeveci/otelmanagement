@@ -1,10 +1,10 @@
 <?php
 /**
-*   
-*   
-*   
+*
+*
+*
 * abdulkadir deveci
-*  
+*
 */
 
 define('APPHP_EXEC', 'access allowed');
@@ -34,40 +34,3 @@ echo implode(',', $arr);
 echo ']';
 
 return;
-
-//if($act == 'send' && ($token == $session_token) && !empty($hotel_id) && !empty($customer_id)){
-//
-//	if(Reviews::CheckCustomerReview($hotel_id, $customer_id)){
-//
-//		$sql = 'INSERT INTO '.TABLE_REVIEWS.'(id, hotel_id, customer_id, title, positive_comments, negative_comments, rating_cleanliness, rating_room_comfort, rating_location, rating_service, rating_sleep_quality, rating_price, evaluation, image_file_1, image_file_1_thumb, image_file_2, image_file_2_thumb, image_file_3, image_file_3_thumb, date_created, is_active, priority_order) VALUES 
-//			(NULL, '.$hotel_id.', '.$customer_id.', \''.$title.'\', \''.$positive_comments.'\', \''.$negative_comments.'\', '.$rating_cleanliness.', '.$rating_room_comfort.', '.$rating_location.', '.$rating_service.', '.$rating_sleep_quality.', '.$rating_price.', '.$evaluation.', \'\', \'\', \'\', \'\', \'\', \'\', \'\', \'\', NOW(), 1, 0)';
-//		database_void_query($sql);
-//		
-//		header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');   // Date in the past
-//		header('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
-//		header('Cache-Control: no-cache, must-revalidate'); // HTTP/1.1
-//		header('Pragma: no-cache'); // HTTP/1.0
-//		header('Content-Type: application/json');
-//		
-//		$sql = 'SELECT
-//					r.*,
-//					cnt.name as country_name,
-//                    hd.name as hotel_name
-//				FROM '.TABLE_REVIEWS.' r
-//					LEFT OUTER JOIN '.TABLE_COUNTRIES.' cnt ON r.author_country = cnt.abbrv AND cnt.is_active = 1
-//                    LEFT OUTER JOIN '.TABLE_HOTELS_DESCRIPTION.' hd ON r.hotel_id = hd.hotel_id AND hd.language_id = \''.Application::Get('lang').'\'
-//				WHERE r.is_active = 1
-//                    '.($hotel_id != 0 ? ' AND r.hotel_id = '.(int)$hotel_id : '').'
-//				ORDER BY r.priority_order ASC';
-//	//    $arr[] = '{"sql":"'.htmlentities($sql).'"}';
-//		$result = database_query($sql, DATA_AND_ROWS, ALL_ROWS);
-//		if($result[1] > 0){
-//		}
-//
-//		echo '[';
-//		echo implode(',', $arr);
-//		echo ']';
-//	}else{
-//		// Customer send review for this hotel
-//	}
-//}    

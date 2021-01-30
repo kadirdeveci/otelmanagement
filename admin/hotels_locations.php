@@ -1,28 +1,28 @@
 <?php
 /**
-*  
+*
 * abdulkadir deveci
 
-*  
+*
 
-*  
-*   
+*
+*
 */
 
 // *** Make sure the file isn't accessed directly
 defined('APPHP_EXEC') or die('Restricted Access');
 //--------------------------------------------------------------------------
-	
+
 if($objLogin->IsLoggedInAs('owner','mainadmin', 'regionalmanager')){
-	
+
 	$action 	= MicroGrid::GetParameter('action');
 	$rid    	= MicroGrid::GetParameter('rid');
 	$mode   = 'view';
 	$msg 	= '';
-	
+
 	$objHotelsLocations = new HotelsLocations();
 
-	if($action=='add'){		
+	if($action=='add'){
 		$mode = 'add';
 	}else if($action=='create'){
 		if($objHotelsLocations->AddRecord()){
@@ -41,7 +41,7 @@ if($objLogin->IsLoggedInAs('owner','mainadmin', 'regionalmanager')){
 		}else{
 			$msg = draw_important_message($objHotelsLocations->error, false);
 			$mode = 'edit';
-		}		
+		}
 	}else if($action=='delete'){
 		if($objHotelsLocations->DeleteRecord($rid)){
 			$msg = draw_success_message(_DELETING_OPERATION_COMPLETED, false);
@@ -49,32 +49,30 @@ if($objLogin->IsLoggedInAs('owner','mainadmin', 'regionalmanager')){
 			$msg = draw_important_message($objHotelsLocations->error, false);
 		}
 		$mode = 'view';
-	}else if($action=='details'){		
-		$mode = 'details';		
-	}else if($action=='cancel_add'){		
-		$mode = 'view';		
-	}else if($action=='cancel_edit'){				
+	}else if($action=='details'){
+		$mode = 'details';
+	}else if($action=='cancel_add'){
+		$mode = 'view';
+	}else if($action=='cancel_edit'){
 		$mode = 'view';
 	}
-	
+
 	// Start main content
 	draw_title_bar(
 		prepare_breadcrumbs(array((FLATS_INSTEAD_OF_HOTELS ? _FLAT_MANAGEMENT : _HOTEL_MANAGEMENT)=>'',_SETTINGS=>'',_LOCATIONS=>'',ucfirst($action)=>''))
 		//prepare_permanent_link('index.php?admin=hotels_info', _BUTTON_BACK)
 	);	
-	
-	//if($objSession->IsMessage('notice')) echo $objSession->GetMessage('notice');
 	echo $msg;
 
-	draw_content_start();	
+	draw_content_start();
 	if($mode == 'view'){
-		$objHotelsLocations->DrawViewMode();	
-	}else if($mode == 'add'){		
-		$objHotelsLocations->DrawAddMode();		
-	}else if($mode == 'edit'){		
-		$objHotelsLocations->DrawEditMode($rid);		
-	}else if($mode == 'details'){		
-		$objHotelsLocations->DrawDetailsMode($rid);		
+		$objHotelsLocations->DrawViewMode();
+	}else if($mode == 'add'){
+		$objHotelsLocations->DrawAddMode();
+	}else if($mode == 'edit'){
+		$objHotelsLocations->DrawEditMode($rid);
+	}else if($mode == 'details'){
+		$objHotelsLocations->DrawDetailsMode($rid);
 	}
 	draw_content_end();
 
@@ -82,4 +80,3 @@ if($objLogin->IsLoggedInAs('owner','mainadmin', 'regionalmanager')){
 	draw_title_bar(_ADMIN);
 	draw_important_message(_NOT_AUTHORIZED);
 }
-
